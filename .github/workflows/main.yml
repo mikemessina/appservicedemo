@@ -1,4 +1,4 @@
-name: Deploy ASP.NET CORE
+name: Deploy ASP.NET  CORE
 
 on:
   push:
