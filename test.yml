@@ -6,9 +6,9 @@ on:
       - master
 
 env:
-  AZURE_WEBAPP_NAME: 'mmessinatestwebapp'
+  AZURE_WEBAPP_NAME: csweb0619202
   AZURE_WEBAPP_PATH: '.'
-  DOTNET_VERSION: '2.1.604'
+  DOTNET_VERSION: '2.2.101'
 
 jobs:
   build-and-deploy:
@@ -31,9 +31,9 @@ jobs:
         run: |
           dotnet build --configuration release
           dotnet publish -c Release -o '${{ env.AZURE_WEBAPP_PATH }}/myapp'
-
+      
       - name: Deploy to App Service
         uses: azure/webapps-deploy@v2
         with:
-          app-name: ${{ env.AZURE_WEBAPP_PATH }}
+          app-name: ${{ env.AZURE_WEBAPP_NAME }}
           package: '${{ env.AZURE_WEBAPP_PATH }}/myapp'
